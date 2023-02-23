@@ -7,17 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{C3D2FDE4-FB7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Competition.API", "Competition.API\Competition.API.csproj", "{6312C94B-9339-4C7C-96ED-0CCAE1E09B29}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Competition.Core", "Competition.Core", "{83AE1A44-F065-4597-A039-778F85EC9795}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{83AE1A44-F065-4597-A039-778F85EC9795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Competition.Core", "Competition.Core\Competition.Core.csproj", "{DE041BB4-BC9E-4D2C-AA92-47D3C8D5AF7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Competition.Core\Core.csproj", "{DE041BB4-BC9E-4D2C-AA92-47D3C8D5AF7F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Competition.Data", "Competition.Data", "{4E122C87-8151-469E-93E1-0CC22362EAB9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{4E122C87-8151-469E-93E1-0CC22362EAB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Competition.Data", "Competition.Data\Competition.Data.csproj", "{C32F071A-CF0A-43A0-9340-7F1977F367C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Competition.Data\Data.csproj", "{C32F071A-CF0A-43A0-9340-7F1977F367C1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Competition.Service", "Competition.Service", "{8C7D3DB4-5481-4F5B-BC77-6655DC5828E6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{8C7D3DB4-5481-4F5B-BC77-6655DC5828E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Competition.Service", "Competition.Service\Competition.Service.csproj", "{8B26339D-44D0-43CD-91D8-0DDFF4627C9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Competition.Service\Service.csproj", "{8B26339D-44D0-43CD-91D8-0DDFF4627C9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
