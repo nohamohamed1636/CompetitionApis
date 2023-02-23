@@ -14,3 +14,4 @@
 /CompetitionClean/Competition.Data/obj
 /CompetitionClean/Competition.Service/obj
 /CompetitionClean/.vs/CompetitionClean/DesignTimeBuild/.dtbcache.v2
+/CompetitionClean/Competition.API/bin/Debug/net7.0/Competition.API.deps.json
