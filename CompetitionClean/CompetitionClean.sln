@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Competition.Core", "Competi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Competition.Core", "Competition.Core\Competition.Core.csproj", "{DE041BB4-BC9E-4D2C-AA92-47D3C8D5AF7F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Competition.Data", "Competition.Data", "{4E122C87-8151-469E-93E1-0CC22362EAB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Competition.Data", "Competition.Data\Competition.Data.csproj", "{C32F071A-CF0A-43A0-9340-7F1977F367C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,10 @@ Global
 		{DE041BB4-BC9E-4D2C-AA92-47D3C8D5AF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE041BB4-BC9E-4D2C-AA92-47D3C8D5AF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE041BB4-BC9E-4D2C-AA92-47D3C8D5AF7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32F071A-CF0A-43A0-9340-7F1977F367C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32F071A-CF0A-43A0-9340-7F1977F367C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32F071A-CF0A-43A0-9340-7F1977F367C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32F071A-CF0A-43A0-9340-7F1977F367C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6312C94B-9339-4C7C-96ED-0CCAE1E09B29} = {C3D2FDE4-FB78-4E80-A684-615AC341F782}
 		{DE041BB4-BC9E-4D2C-AA92-47D3C8D5AF7F} = {83AE1A44-F065-4597-A039-778F85EC9795}
+		{C32F071A-CF0A-43A0-9340-7F1977F367C1} = {4E122C87-8151-469E-93E1-0CC22362EAB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F25D10D-700C-48E4-B612-12352EE90707}
