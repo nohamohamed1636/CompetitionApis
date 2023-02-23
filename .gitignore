@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/CompetitionApis/.vs/CompetitionApis/v17
+/CompetitionClean/.vs/CompetitionClean/v17
+/CompetitionCleanRepo/.vs
+/CompetitionApis/CompetitionApis/obj
+/CQRSAndMediatRDemo/.vs
