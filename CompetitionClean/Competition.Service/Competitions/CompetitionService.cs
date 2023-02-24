@@ -58,5 +58,69 @@ namespace Service.Competitions
                 return "";
             }
         }
+
+
+        public async Task<List<CompetitionList>> GetListOfCompetition()
+        {
+            
+            var competitionrep = await _competitionRepository.GetAllCompetition();
+            var res = competitionrep.OrderBy(d => d.Id).Select(j=> new CompetitionList { CompetitionId = j.Id,CompetitionName = j.Title});
+            return res.ToList();
+        }
+
+        public async Task<List<ManageCompetitionList>> ManageCompetition()
+        {
+
+            var competitionrep = await _competitionRepository.GetAllCompetitionList();
+            var res = competitionrep.OrderBy(d => d.Id)
+                .Select(j => new ManageCompetitionList 
+                { 
+                    Id = j.Id,
+                    Title = j.Title,
+                    Approved = j.Approved,
+                     Published = j.Published,
+                     AnsweringDuration = j.AnsweringDuration,
+                     CreatedOnUtc = j.CreatedOnUtc,
+                     Deleted = j.Deleted,
+                     FullMark = j.CompetitionQuestions.Where(e => e.Deleted == false && e.CompetitionId == j.Id).Sum(h=>h.CorrectionMark),
+                     //MultipleChoice = j.CompetitionQuestions.Where(e=>e.Deleted == false)
+                    //TrueFalse = 
+                    PublishDate = j.PublishDate ,
+                    publishFree = j.publishFree,
+                    StaticDuration = j.StaticDuration,
+                    UserId = j.UserId,
+                    QuestionsCount = j.QuestionsCount
+                });
+            return res.ToList();
+        }
+
+        public async Task<List<GradeCompetitionList>> GetGradCompetition()
+        {
+
+            var competitionrep = await _competitionRepository.GetAllCompetitionList();
+            var res = competitionrep.OrderBy(d => d.Id)
+                .Select(j => new GradeCompetitionList
+                {
+                    Id = j.Id,
+                    Competition = j.Title,
+                    PublishDate = (j.PublishDate != null) ? (DateTime)j.PublishDate : null,
+                    CreatedOnUtc = j.CreatedOnUtc
+                });
+            return res.ToList();
+        }
+        public async Task<List<GradeCompetitionList>> GetcompetitionByUserId(string userId)
+        {
+
+            var competitionrep = await _competitionRepository.GetAllCompetitionList();
+            var res = competitionrep.Where(s=>s.UserId == userId).OrderBy(d => d.Id)
+                .Select(j => new GradeCompetitionList
+                {
+                    Id = j.Id,
+                    Competition = j.Title,
+                    PublishDate = (j.PublishDate != null) ? (DateTime)j.PublishDate : null,
+                    CreatedOnUtc = j.CreatedOnUtc
+                });
+            return res.ToList();
+        }
     }
 }

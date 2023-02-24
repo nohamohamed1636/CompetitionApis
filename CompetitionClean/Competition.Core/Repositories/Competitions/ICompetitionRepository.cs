@@ -11,6 +11,7 @@ namespace Core.Repositories.Competitions
     {
         Task<Competition> AddNewCompetition(Competition newCompetition);
         Task<List<Competition>> GetAllCompetition();
+        Task<List<Competition>> GetAllCompetitionList();
         Task<Competition> GetCompetitionById(int competitionId);
         Task SaveChangesAsync();
         Task<Competition> UpdateUser(Competition competition);
