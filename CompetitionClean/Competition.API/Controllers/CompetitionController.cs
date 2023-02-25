@@ -52,6 +52,43 @@ namespace Competition.API.Controllers
             return Ok(result);
         }
 
+        [HttpPost("UpdateCompetitionIsPublished")]
+        public async Task<IActionResult> UpdateCompetitionIsPublished(int competitinId)
+        {
+            var result = await _competitionService.UpdateCompetitionIsPublished(competitinId);
+            return Ok(result);
+        }
+        [HttpPost("UpdateCompetitionPublishedDate")]
+        public async Task<IActionResult> UpdateCompetitionPublishedDate(int competitinId)
+        {
+            var result = await _competitionService.UpdateCompetitionPublishedDate(competitinId);
+            return Ok(result);
+        }
+        [HttpGet("DeleteCompetition")]
+        public async Task<IActionResult> DeleteCompetition(int competitinId)
+        {
+            var result = await _competitionService.DeleteCompetition(competitinId);
+            return Ok(result);
+        }
 
+        [HttpPost("UpdateCompetitionStaticDuration")]
+        public async Task<IActionResult> UpdateCompetitionStaticDuration(int competitinId, int staticDuration)
+        {
+            var result = await _competitionService.UpdateCompetitionStaticDuration(competitinId, staticDuration);
+            return Ok(result);
+        }
+
+        [HttpGet("CheckCompetitionForAttendance")]
+        public async Task<IActionResult> CheckCompetitionForAttendance(int competitinId)
+        {
+            var result = await _competitionService.CheckCompetitionForAttendance(competitinId);
+            return Ok(result);
+        }
+        [HttpGet("CheckCompetitionForStart")]
+        public async Task<IActionResult> CheckCompetitionForStart(int competitinId)
+        {
+            var result = await _competitionService.CheckCompetitionForStart(competitinId);
+            return Ok(result);
+        }
     }
 }

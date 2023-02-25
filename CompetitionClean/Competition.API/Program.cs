@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 #region Add Injection Scops
 builder.Services.AddScoped<ICompetitionRepository, CompetitionRepository>();
 builder.Services.AddScoped<ICompetitionService, CompetitionService>();
+builder.Services.AddScoped<ICompetitionAnswerRepository, CompetitionAnswerRepository>();
 #endregion
 
 //fordbcontext

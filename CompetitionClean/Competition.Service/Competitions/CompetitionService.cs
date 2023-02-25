@@ -14,9 +14,11 @@ namespace Service.Competitions
     public class CompetitionService : ICompetitionService
     {
         private readonly ICompetitionRepository _competitionRepository;
-        public CompetitionService(ICompetitionRepository competitionRepository)
+        private readonly ICompetitionAnswerRepository _competitionAnswerRepository;
+        public CompetitionService(ICompetitionRepository competitionRepository, ICompetitionAnswerRepository competitionAnswerRepository)
         {
             _competitionRepository = competitionRepository;
+            _competitionAnswerRepository = competitionAnswerRepository;
         }
 
 
@@ -121,6 +123,162 @@ namespace Service.Competitions
                     CreatedOnUtc = j.CreatedOnUtc
                 });
             return res.ToList();
+        }
+
+        public async Task<string> UpdateCompetitionIsPublished(int competitionId)
+        {
+            try
+            {
+                var competitionrep = await _competitionRepository.GetCompetitionById(competitionId);
+                if(competitionrep == null)
+                {
+                    return "this competition not found";
+                }
+                competitionrep.Published = true;
+                await _competitionRepository.SaveChangesAsync();
+                return "Published successfully";
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
+        }
+        public async Task<string> UpdateCompetitionPublishedDate(int competitionId)
+        {
+            try
+            {
+                var competitionrep = await _competitionRepository.GetCompetitionById(competitionId);
+                if (competitionrep == null)
+                {
+                    return "this competition not found";
+                }
+                competitionrep.PublishDate = DateTime.Now.ToUniversalTime();
+                await _competitionRepository.SaveChangesAsync();
+                return "update publish date successfully";
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
+        }
+
+        public async Task<string> DeleteCompetition(int competitionId)
+        {
+            try
+            {
+                var competitionrep = await _competitionRepository.GetCompetitionById(competitionId);
+                if (competitionrep == null)
+                {
+                    return "this competition not found";
+                }
+                bool competitionAnswers = await _competitionAnswerRepository.CountCompetitiinAnswer(competitionId) > 0;
+                if(!competitionAnswers)
+                {
+                    foreach (var item in competitionrep.CompetitionQuestions)
+                    {
+                        item.Deleted = true;
+                    }
+
+                    foreach (var item in competitionrep.CompetitionTargets)
+                    {
+                        item.Deleted = true;
+                    }
+                    competitionrep.Deleted = true;
+                    await _competitionRepository.SaveChangesAsync();
+                    return "competition deleted successfully";
+                }
+                else
+                {
+                    return "you can't delete this competition this there answer for it";
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
+        }
+
+        public async Task<string> UpdateCompetitionStaticDuration(int competitionId, int staticDuration)
+        {
+            try
+            {
+                var competitionrep = await _competitionRepository.GetCompetitionById(competitionId);
+                if (competitionrep == null)
+                {
+                    return "this competition not found";
+                }
+                competitionrep.StaticDuration = staticDuration;
+                await _competitionRepository.SaveChangesAsync();
+                return "update static duration successfully";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public async Task<CheckAttendance> CheckCompetitionForAttendance(int competitionId)
+        {
+            try
+            {
+                var competitionrep = await _competitionRepository.GetCompetitionById(competitionId);
+                if (competitionrep == null)
+                {
+
+                    return new CheckAttendance { Checked = false,  Errors= "this competition not found" };
+                }
+                if(competitionrep.Published == false)
+                {
+                    return new CheckAttendance { Checked = false, Errors = "" };
+                }
+                else
+                {
+                    return new CheckAttendance { Checked = true, Errors = "" };
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                return new CheckAttendance { Checked = false, Errors = ex.Message };
+            }
+        }
+
+        public async Task<CheckAttendance> CheckCompetitionForStart(int competitionId)
+        {
+            try
+            {
+                var competitionrep = await _competitionRepository.GetCompetitionById(competitionId);
+                if (competitionrep == null)
+                {
+
+                    return new CheckAttendance { Checked = false, Errors = "this competition not found" };
+                }
+                if(competitionrep.PublishDate == null)
+                {
+                    return new CheckAttendance { Checked = false, Errors = "" };
+                }
+                else
+                {
+                    if (competitionrep.PublishDate > DateTime.Now.ToUniversalTime() || competitionrep.PublishDate.Value.AddHours(1) != DateTime.Now.ToUniversalTime())
+                    {
+                        return new CheckAttendance { Checked = false, Errors = "" };
+                    }
+                    else
+                    {
+                        return new CheckAttendance { Checked = true, Errors = "" };
+                    }
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                return new CheckAttendance { Checked = false, Errors = ex.Message };
+            }
         }
     }
 }
