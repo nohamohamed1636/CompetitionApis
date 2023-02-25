@@ -1,12 +1,23 @@
 using Core.Models.Context;
+using Core.Repositories.Competitions;
+using Core.Services.Competitions;
+using Data.Repositories.Competitions;
 using Microsoft.EntityFrameworkCore;
+using Service.Competitions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 //builder.Services.AddScoped<AppDbContext>();
-//fordbcontext
+#region Add Injection Scops
+builder.Services.AddScoped<ICompetitionRepository, CompetitionRepository>();
+builder.Services.AddScoped<ICompetitionService, CompetitionService>();
+builder.Services.AddScoped<ICompetitionAnswerRepository, CompetitionAnswerRepository>();
+builder.Services.AddScoped<ICompetitionTargteRepository, CompetitionTargteRepository>();
+builder.Services.AddScoped<ICompetitiontargetService, CompetitiontargetService>();
+#endregion
 
+//fordbcontext
 builder.Services.AddDbContext<AppDbContext>(options =>
              options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionDb")));
 

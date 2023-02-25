@@ -22,11 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Competition.Core\Core.csproj" />
+    <ProjectReference Include="..\Competition.Data\Data.csproj" />
+    <ProjectReference Include="..\Competition.Service\Service.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,7 +13,7 @@ namespace Core.Models
     {
         public int Id { get; set; }
         public int CompetitionId { get; set; }
-        //public int? EducationYearClassroomId { get; set; }
+        public int? EducationYearClassroomId { get; set; }
         public string StudentId { get; set; }
         //public string TeacherId { get; set; }
 
