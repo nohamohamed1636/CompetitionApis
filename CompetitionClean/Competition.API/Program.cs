@@ -13,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<ICompetitionRepository, CompetitionRepository>();
 builder.Services.AddScoped<ICompetitionService, CompetitionService>();
 builder.Services.AddScoped<ICompetitionAnswerRepository, CompetitionAnswerRepository>();
+builder.Services.AddScoped<ICompetitionTargteRepository, CompetitionTargteRepository>();
+builder.Services.AddScoped<ICompetitiontargetService, CompetitiontargetService>();
 #endregion
 
 //fordbcontext

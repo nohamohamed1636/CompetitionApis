@@ -24,12 +24,7 @@ namespace Competition.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("CreateNewCompetition")]
-        public async Task<IActionResult> CreateNewCompetition(NewCompetition NewCompetition)
-        {
-            var result = await _competitionService.CreateNewCompetition(NewCompetition);
-            return Ok(result);
-        }
+        
         [HttpGet("GetCompetitionList")]
         public async Task<IActionResult> GetCompetitionList()
         {

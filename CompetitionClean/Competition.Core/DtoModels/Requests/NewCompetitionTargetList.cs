@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DtoModels.Dtos
+namespace Core.DtoModels.Requests
 {
-    public class CompetitionData
+    public class NewCompetitionTargetList
     {
-        public string Message { get; set; }
         public int CompetitionId { get; set; }
-        public string Error { get; set;}
+        public List<StudentList> StudentLists { get; set; }
+
     }
 }
