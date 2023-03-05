@@ -40,9 +40,10 @@ namespace Core.Models
             public DateTime CreatedOnUtc { get; set; }
 
             public int StaticDuration { get; set; }
+            public string CompetitionCode { get; set; }
 
 
-            public virtual ICollection<CompetitionQuestion> CompetitionQuestions { get; set; }
+        public virtual ICollection<CompetitionQuestion> CompetitionQuestions { get; set; }
 
             public virtual ICollection<CompetitionTarget> CompetitionTargets { get; set; }
         
