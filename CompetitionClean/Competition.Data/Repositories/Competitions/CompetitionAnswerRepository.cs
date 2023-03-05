@@ -25,5 +25,12 @@ namespace Data.Repositories.Competitions
             return result.Count;
 
         }
+
+        public async Task<CompetitionAnswer> GetCompetitionAnswer(int competitionQuestionId, int competitiontargetId)
+        {
+            var result = await _context.CompetitionAnswers.FirstOrDefaultAsync(c => c.CompetitionTargetId == competitiontargetId && c.CompetitonQuestionId == competitionQuestionId  && c.Deleted == false);
+            return result;
+
+        }
     }
 }

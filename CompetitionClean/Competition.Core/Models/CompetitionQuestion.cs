@@ -27,6 +27,9 @@ namespace Core.Models
         public bool Deleted { get; set; }
         public int AnswerDuration { get; set; }
 
+        [DefaultValue(false)]
+        public bool IsGold { get; set; }
+
         [ForeignKey("CompetitionId")]
         public virtual Competition Competitions { get; set; }
 

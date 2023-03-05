@@ -242,5 +242,33 @@ namespace Service.Competitions
             }
         }
 
+        public async Task<CheckAttendance> CheckCompetitionCompetitionTargetSolved(int competitionId,string studentId)
+        {
+            var check = new CheckAttendance();
+            try
+            {
+                var getSolvedCompetitiontarget = await _competitionTargteRepository.GetCompetitionTargetByStudentIdAndCompetitionId(competitionId,studentId);
+                if (getSolvedCompetitiontarget == null)
+                {
+                    check = new CheckAttendance { Errors = "not found any competition" };
+
+                }
+                else
+                {
+                    if(getSolvedCompetitiontarget.FirstOrDefault().Solved == true)
+                    {
+                        check = new CheckAttendance { Checked = true };
+                    }
+                    
+                }
+                return check;
+            }
+            catch (Exception ex)
+            {
+
+                return new CheckAttendance { Errors = ex.Message };
+            }
+        }
+
     }
 }

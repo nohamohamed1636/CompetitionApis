@@ -27,7 +27,13 @@ namespace Data.Repositories.Competitions
             return result;
 
         }
+        //public async Task<List<CompetitionTarget>> GetCompetitionTargetListByStudentIdAndCompetitionId(int competitionId, string studentId)
+        //{
+        //    var result = await _context.CompetitionTargets.Where(c => c.Deleted == false && c.CompetitionId == competitionId
+        //                                                          && c.StudentId == studentId && c.Solved == false).Include(c => c.Competitions).ToListAsync();
+        //    return result;
 
+        //}
         public async Task<List<CompetitionTarget>> GetAllCompetitionTargetByCompetitionId(int competitionId)
         {
             var result = await _context.CompetitionTargets.Where(c => c.Deleted == false && c.CompetitionId == competitionId).ToListAsync();
